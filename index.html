@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-image: 
+        linear-gradient(60deg, rgba(34,211,238,0.25) 1.5px, transparent 1.5px),
+        linear-gradient(120deg, rgba(34,211,238,0.25) 1.5px, transparent 1.5px);
+      background-size: 45px 45px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    nav {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: rgba(2, 6, 23, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    nav h1 {
+      margin: 0;
+      color: #34d399;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    nav ul li:hover {
+      color: #34d399;
+      transform: translateY(-2px);
+    }
+
+    .section {
+      position: relative;
+      z-index: 1;
+      display: none;
+      padding: 60px 40px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .home {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .home-text {
+      max-width: 500px;
+    }
+
+    .home-text h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .home-text span {
+      color: #34d399;
+    }
+
+    .home-text p {
+      color: #cbd5f5;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      background: linear-gradient(45deg, #34d399, #22c55e);
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .profile {
+      width: 250px;
+      height: 250px;
+      border-radius: 20px;
+      border: 4px solid #34d399;
+      box-shadow: 0 0 20px rgba(52,211,153,0.3);
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: rgba(2,6,23,0.8);
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #1e293b;
+      transition: 0.3s;
+      backdrop-filter: blur(5px);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: #34d399;
+      box-shadow: 0 0 15px rgba(52,211,153,0.3);
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      color: #34d399;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .skill {
+      background: rgba(2,6,23,0.8);
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid #1e293b;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      border-color: #34d399;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(52,211,153,0.3);
+    }
+
+    .contact img {
+      transition: 0.3s;
+    }
+
+    .contact img:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 8px #34d399);
+    }
+
+    @media(max-width: 768px) {
+      .home {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Rambel Joseph G. Dela Rosa</h1>
+    <ul>
+      <li onclick="showSection('home')">Home</li>
+      <li onclick="showSection('projects')">Projects</li>
+      <li onclick="showSection('skills')">Skills</li>
+      <li onclick="showSection('contact')">Contact</li>
+    </ul>
+  </nav>
+
+  <div id="home" class="section active home">
+    <div class="home-text">
+      <h2>Hi, I'm <span>Rambel</span></h2>
+      <h3>Creative Developer</h3>
+      <p>I create simple and clean websites using HTML, CSS, and JavaScript.</p>
+    </div>
+
+    <div class="profile">
+      <img src="profilepic.jpg" alt="Profile">
+    </div>
+
+    <div style="width:100%; margin-top:40px;">
+      <h3>About Me</h3>
+      <p style="max-width:600px;">
+        I am a 2nd year student in Pampanga State Agricultural University.
+         I’m still improving my skills and exploring more about programming as I go.  
+      </p>
+    </div>
+  </div>
+
+
+  <div id="projects" class="section">
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Portfolio</h3>
+        <p>It’s a simple website that serves as my first portfolio.</p>
+        <a href="https://rambel36.github.io/Rambel-Porfolio/" target="_blank" style="color:#34d399;">View on GitHub</a>
+      </div>
+      <div class="project-card">
+        <h3>Log In</h3>
+        <p>It’s a basic login page.</p>
+        <a href="https://rambel36.github.io/Log-In-Activity/" target="_blank" style="color:#34d399;">View on GitHub</a>
+      </div>
+      <div class="project-card">
+        <h3>Online Shop</h3>
+        <p>It’s an online store where you can purchase gadgets and accessories such as headphones and more.</p>
+        <a href=" https://rambel36.github.io/Online-Shop/" target="_blank" style="color:#34d399;">View on GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="skills" class="section">
+    <h2>My Skills</h2>
+    <div class="skills-list">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+    </div>
+  </div>
+
+  <div id="contact" class="section contact">
+    <h2>Contact Me!</h2>
+
+    <div style="display:flex; gap:20px; margin-top:20px;">
+      <a href="mailto:yourgmail@gmail.com">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="50">
+      </a>
+
+      <a href="https://facebook.com/yourprofile" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="50">
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    
+  </script>
+
+</body>
+</html>
